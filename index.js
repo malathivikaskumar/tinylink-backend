@@ -10,7 +10,6 @@ import cors from "cors";
 import {
   createLink,
   getAllLinks,
-  getLinkStats,
   deleteLink,
   redirectLink
 } from "./controller/tinylinkcontroller.js";
@@ -33,7 +32,6 @@ app.get("/healthz", (req, res) =>
 
 app.post("/api/links", createLink);
 app.get("/api/links", getAllLinks);
-app.get("/api/links/:code", getLinkStats);
 app.delete("/api/links/:code", deleteLink);
 
 // Redirect handler

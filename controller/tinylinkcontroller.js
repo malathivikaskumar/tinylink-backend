@@ -1,4 +1,3 @@
-// controllers/linkController.js
 import validator from "validator";
 import * as db from "../db/tinylinkrepository.js";
 
@@ -69,21 +68,7 @@ export async function getAllLinks(req, res) {
   res.json(data);
 }
 
-export async function getLinkStats(req, res) {
-  const code = req.params.code;
 
-  if (!db.isValidCode(code)) {
-    return res.status(400).json({ error: "Invalid code" });
-  }
-
-  const link = await db.findLinkByCode(code);
-
-  if (!link || link.deleted) {
-    return res.status(404).json({ error: "Not found" });
-  }
-
-  res.json(link);
-}
 
 export async function deleteLink(req, res) {
   const code = req.params.code;
